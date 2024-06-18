@@ -2,7 +2,7 @@ import React from 'react';
 import Tilt from './Tilt';
 import './Tilt.css';
 
-export default (ComponentToRender) => 
+const withTilt = (ComponentToRender) => 
     class extends React.Component {
         render() {
             const { ...props } = this.props;
@@ -16,3 +16,5 @@ export default (ComponentToRender) =>
             );
         }
     };
+
+export default withTilt;
