@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 import './Tilt.css';
 
-export default class Tilt extends React.Component {
-    componentDidMount() {
-        VanillaTilt.init(this.rootNode, {
+const Tilt = () => {
+    const tiltRef = useRef(null);
+
+    useEffect(() => {
+        VanillaTilt.init(tiltRef.current, {
             max: 10,
             speed: 400,
             reset: false
         });
-    }
-    render() {
-        return (
-            <div className='tilt-wrapper'>
-                <div id='stars2'></div>
-                <div ref={node => (this.rootNode = node)} className="tilter" >
-                    <div id='stars3'></div>
-                    <div id='stars'></div>
-                </div>
+    }, []);
+
+    return (
+        <div className='tilt-wrapper'>
+            <div id='stars2'></div>
+            <div ref={tiltRef} className="tilter" >
+                <div id='stars3'></div>
+                <div id='stars'></div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+export default Tilt;
