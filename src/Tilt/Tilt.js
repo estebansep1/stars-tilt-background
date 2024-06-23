@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import './Tilt.css';
+import './Tilt.css'
 
 const Tilt = () => {
     const tiltRef = useRef(null);
